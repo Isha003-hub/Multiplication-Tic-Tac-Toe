@@ -1,0 +1,227 @@
+/* General body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; 
+    padding: 0;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    height: 100vh; 
+    background: linear-gradient(135deg, #1d2671, #c33764); 
+    color: white;
+}
+
+/* Hide all pages by default */
+#start-page, #game-page, #winner-popup {
+    display: none; /* Makes elements invisible */
+}
+
+/* Show active pages */
+#start-page.active, #game-page.active, #winner-popup.active {
+    display: flex; 
+}
+
+/* Common layout for start and game pages */
+.start-page, .game-page {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+/* Styling for animated buttons */
+.animated-button {
+    padding: 15px 30px; 
+    border-radius: 30px; 
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Button gradient */
+    color: white; 
+    border: none; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Button hover effect */
+.animated-button:hover {
+    transform: scale(1.1); /* Enlarges button on hover */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); /* Adds a glowing shadow */
+}
+
+/* Subtitle styling */
+.subtitle {
+    margin-bottom: 20px; 
+    font-size: 1.2rem; 
+}
+
+/* Game board styling */
+#board {
+    display: grid; /* Enables grid layout */
+    grid-template-columns: repeat(3, 120px); /* Creates 3 columns */
+    grid-template-rows: repeat(3, 120px); /* Creates 3 rows */
+    gap: 15px; /* Adds spacing between cells */
+    justify-content: center; 
+    margin: 20px auto; 
+}
+
+/* Individual cell styling */
+.cell {
+    background: #ffffff; 
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2.5rem; 
+    border-radius: 10px; 
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow to cells */
+}
+
+/* Hover effect for cells */
+.cell:hover {
+    background: #ffe8cc;
+    transform: scale(1.1); /* Enlarges the cell */
+}
+
+/* Styling for cells taken by Player X */
+.cell.taken.X {
+    background: #6dd5ed; /* Light blue for Player X */
+    cursor: not-allowed; /* Disables cursor interaction */
+    box-shadow: none; /* Removes shadow */
+}
+
+/* Styling for cells taken by Player O */
+.cell.taken.O {
+    background: #ff9a9e; /* Light pink for Player O */
+    cursor: not-allowed; /* Disables cursor interaction */
+    box-shadow: none; /* Removes shadow */
+}
+
+/* Animation for wrong answers */
+.cell.wrong-answer {
+    background-color: #ff4c4c; /* Red background for wrong answers */
+    animation: wiggle 0.5s ease; /* Wiggle animation */
+}
+
+/* Keyframes for wiggle animation */
+@keyframes wiggle {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Winner popup overlay */
+#winner-popup {
+    position: fixed; /* Sticks to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.8); 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000; 
+}
+
+/* Winner popup content styling */
+.popup-content {
+    background: white; 
+    padding: 30px;
+    border-radius: 20px; 
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adds shadow */
+    color: #333; 
+}
+
+/* Title inside the popup */
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem; 
+}
+
+/* Buttons inside the popup */
+.popup-content button {
+    margin: 10px; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 20px; 
+    font-size: 1rem;
+    cursor: pointer; /* Pointer cursor on hover */
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Button gradient */
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for popup buttons */
+.popup-content button:hover {
+    transform: scale(1.1); /* Enlarges button */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adds shadow */
+}
+
+/* Player turn display */
+.player-turn {
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-bottom: 15px; 
+}
+
+/* Home button styling */
+.home-button {
+    margin-top: 15px; 
+    font-size: 1rem; 
+    background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Button gradient */
+    color: white; 
+}
+
+/* Hover effect for home button */
+.home-button:hover {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); /* Adds glowing shadow */
+}
+
+/* Confetti container styling */
+.confetti { /*https://codepen.io/search/pens?q=confetti*/
+    position: fixed; /* Fixed to viewport */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    pointer-events: none; /* Prevents interaction */
+    overflow: hidden; /* Hides overflow content */
+    z-index: 1001; /* Stays above all elements */
+}
+
+/* Confetti pieces */
+.confetti-piece {
+    position: absolute; /* Positioned randomly */
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; /* Circular confetti */
+    animation: fall 4s ease-out infinite; /* Falling animation */
+}
+
+/* Keyframes for confetti falling animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%) rotate(0deg); /* Starts from top */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg); /* Falls to bottom with rotation */
+        opacity: 0; /* Fades out */
+    }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+    #board {
+        grid-template-columns: repeat(3, 80px); /* Smaller columns */
+        grid-template-rows: repeat(3, 80px); /* Smaller rows */
+    }
+
+    .cell {
+        font-size: 2rem; /* Reduces font size */
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Start Page: Shown when the game starts -->
+    <div id="start-page" class="start-page active">
+        <h1>Muntiplication Tic-Tac-Toe</h1> 
+        <p class="subtitle">Answer correctly to play your turn!</p> 
+        <button id="start-button" class="animated-button">Start Game</button> 
+    </div>
+
+    <!-- Game Page: Displays the game board and current player's turn -->
+    <div id="game-page" class="game-page">
+        <h2 class="player-turn" id="turn">Player 1's Turn (X)</h2> 
+        <div id="board"></div> 
+        <button id="home-button" class="animated-button home-button">Home</button>
+    </div>
+
+    <!-- Winner Popup: Displayed when a winner is declared or it's a draw -->
+    <div id="winner-popup" class="winner-popup">
+        <div class="popup-content">
+            <h2 id="popup-title">Game Over!</h2>
+            <button id="popup-restart">Restart Game</button>
+            <button id="popup-home">Go Home</button> 
+        </div>
+    </div>
+
+    <!-- Confetti: Animated overlay to celebrate a win -->
+    <div id="confetti" class="confetti"></div>
+
+    <!-- Links the external JavaScript file for interactivity -->
+    <script src="script.js"></script>
+</body>
+</html>
